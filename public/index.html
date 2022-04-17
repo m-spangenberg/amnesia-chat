@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>Amnesia</title>
+      <meta name="author" content="name">
+      <meta name="description" content="AMNESIA, a forgetful chat room for anonymous conversations.">
+      <meta name="keywords" content="chat,namibia,erongo,social,secret,whisper">
+      <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+	    <link rel="stylesheet"  type='text/css' href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+   </head>
+   
+   <body id="pagebody" class="bg-gray-700 font-sans leading-normal tracking-normal max-w-full sm:max-w-full md:max-w-full lg:max-w-full xl:max-w-full">
+
+   <!--Chat Bar-->  
+   <div class="fixed content-center bg-gray-700 top-0 py-3 px-4 w-full md:w-full sm:w-full lg:w-full xl:w-full shadow-lg z-50">
+    <!--Site Navigation-->
+       <ul class="flex justify-between">
+         <li class="mr-3">
+           <a class="inline-block py-1 px-4 transition duration-1000 ease-in-out text-gray-400 hover:text-white" href="#">AMNESIA</a>
+         </li>
+         <!--Active Users-->
+         <li class="mr-3">
+            <div class="inline-block py-1 px-4 flex lg:inline-flex" role="alert">
+               <span id="nightmode" class="mr-2 text-gray-500 text-left text-gray-400 flex-auto">Active</span>
+               <span id="userCounter" class="flex text-blue-500 uppercase text-xs font-bold mr-3">1</span>
+            </div>
+         </li>
+         <!--About-->
+         <li class="mr-3">
+           <a class="inline-block py-1 px-6 transition duration-1000 ease-in-out text-gray-400 hover:text-white" href="about.html">About</a>
+         </li>
+       </ul>
+   </div>
+      
+    </div>
+    <!--ChatArea-->
+    <div id="chatroom" class="w-screen absolute bottom-0 pb-16 overflow-y-auto scrolling-touch select-none z-40">
+        
+      <!--ChatText-->
+
+    </div>
+
+    <!--Chat Bar-->
+    <div class="fixed py-3 px-4 inset-x-0 bottom-0 bg-gray-700 shadow-lg z-50">
+      <div class="flex">
+        <form action="" class="w-full md:w-full sm:w-full lg:w-full xl:w-full">
+          <div class="bg-gray-700 ">
+          <input id="chatBar" class="w-full md:w-full sm:w-full lg:w-full xl:w-full bg-white focus:outline-none focus:shadow-outline border placeholder-gray-300 text-gray-300 focus:text-gray-600 rounded-lg px-4 block appearance-none leading-normal overflow-scroll" required type="text" autocomplete="off" placeholder="say something...">
+        </div>
+        </form>
+      </div>
+    </div>
+
+   <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+   <script src="/js/chat.js"></script>
+   </body>
+</html>

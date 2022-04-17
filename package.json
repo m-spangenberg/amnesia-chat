@@ -1,0 +1,19 @@
+{
+  "name": "amnesia",
+  "version": "0.1.0",
+  "description": "A forgetful chat room.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "chat"
+  ],
+  "author": "marthinus spangenberg",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "pug": "^3.0.2",
+    "socket.io": "^4.4.1"
+  }
+}
