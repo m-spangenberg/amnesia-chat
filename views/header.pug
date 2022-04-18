@@ -1,0 +1,29 @@
+doctype html
+html(lang='en')
+    head
+        meta(charset='UTF-8')
+        meta(name='viewport', content='width=device-width, initial-scale=1.0, shrink-to-fit=no')
+        meta(http-equiv="X-UA-Compatible" content="ie=edge")
+        meta(name='author', content='Marthinus Spangenberg')
+        meta(name="description" content="AMNESIA, a forgetful chat room for anonymous conversations.")
+        meta(name="keywords" content="chat,social,secret,anonymous")
+        link(rel='icon', href='img/favicon.ico')
+        link(href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet")
+        link(rel="stylesheet"  type='text/css' href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css")
+        
+        title AMNESIA
+
+body(class='bg-gray-700 font-sans leading-normal tracking-normal max-w-full sm:max-w-full md:max-w-full lg:max-w-full xl:max-w-full')
+    //- Site Navigation
+    div(class='fixed content-center bg-gray-700 top-0 py-3 px-4 w-full md:w-full sm:w-full lg:w-full xl:w-full shadow-lg z-50')
+        ul(class="flex justify-between")
+            li(class="mr-3")
+                a(class="inline-block py-1 px-4 transition duration-1000 ease-in-out text-gray-400 hover:text-white" href="/") AMNESIA
+            //- Active User Indicator
+            li(class="mr-3")
+                div(class="inline-block py-1 px-4 flex lg:inline-flex" role="alert")
+                    span(id="nightmode" class="mr-2 text-gray-500 text-left text-gray-400 flex-auto") Active
+                    span(id="userCounter" class="flex text-blue-500 uppercase text-xs font-bold mr-3") 1
+            //- About Page
+            li(class="mr-3")
+                a(class="inline-block py-1 px-6 transition duration-1000 ease-in-out text-gray-400 hover:text-white" href="about.html") About

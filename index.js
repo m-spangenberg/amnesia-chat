@@ -4,7 +4,9 @@ const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 const namegen = require('./src/namegenerator');
 
-app.set('view engine', 'pug');
+// set pug as the template engine for express
+app.set('view engine', 'pug')
+
 // const fs = require('fs');
 
 let sessionUsers = [];
@@ -14,7 +16,7 @@ const connectionsLimit = 3
 
 // Serve index.html
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/public/index.html');
+  res.render('index');
 });
 
 // Serve static files from public directory
@@ -22,14 +24,20 @@ app.use(express.static(__dirname + '/public'));
 
 // Redirect to 404.html
 app.use(function(req, res) {
- res.status(400);
-res.sendFile((__dirname + '/public/404.html'));
+  res.status(400);
+  res.render('404', {
+    title: '404!',
+    status: 'The content you were looking for does not exist.'
+  });
 });
 
 // Redirect to 500.html
 app.use(function(error, req, res, next) {
   res.status(500);
-res.sendFile((__dirname + '/public/500.html'));
+  res.render('500', {
+    title: '500!',
+    status: 'Someone unplugged the mainframe.'
+  });
 });
 
 io.sockets.on('connection', function (socket) {
