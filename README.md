@@ -53,6 +53,7 @@ __Wishlist__
   - [ ] link whitelist
   - [ ] flood detection
   - [ ] moderator whitelist
+  - [ ] rate limit per session IP
 - Bot implementation
   - [ ] Simple commands (!command token)
 - UI/UX improvements

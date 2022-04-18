@@ -4,7 +4,9 @@ const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 const namegen = require('./src/namegenerator');
 
-app.set('view engine', 'pug');
+// set pug as the template engine for express
+app.set('view engine', 'pug')
+
 // const fs = require('fs');
 
 let sessionUsers = [];
@@ -12,9 +14,22 @@ let sessionUsers = [];
 // Limit global connection maximum to server
 const connectionsLimit = 3
 
-// Serve index.html
+// Serve index page
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/public/index.html');
+  res.render('index');
+});
+
+// Serve about page
+app.get('/about', (req, res) => {
+  res.render('about');
+});
+
+// Serve ban page -- implement properly
+app.get('/ban', (req, res) => {
+  res.render('ban', {
+    title: '😨',
+    status: 'You have been banned'
+  });
 });
 
 // Serve static files from public directory
@@ -22,14 +37,20 @@ app.use(express.static(__dirname + '/public'));
 
 // Redirect to 404.html
 app.use(function(req, res) {
- res.status(400);
-res.sendFile((__dirname + '/public/404.html'));
+  res.status(400);
+  res.render('404', {
+    title: '404!',
+    status: 'The content you were looking for does not exist.'
+  });
 });
 
 // Redirect to 500.html
 app.use(function(error, req, res, next) {
   res.status(500);
-res.sendFile((__dirname + '/public/500.html'));
+  res.render('500', {
+    title: '500!',
+    status: 'Someone unplugged the mainframe.'
+  });
 });
 
 io.sockets.on('connection', function (socket) {
@@ -114,7 +135,6 @@ function checkNameExists(generatedName) {
 }
 
 // Rate limit per sessionID
-
 // Limit sessions per IP to 1
 
 /*
