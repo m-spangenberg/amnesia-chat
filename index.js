@@ -14,9 +14,22 @@ let sessionUsers = [];
 // Limit global connection maximum to server
 const connectionsLimit = 3
 
-// Serve index.html
+// Serve index page
 app.get('/', (req, res) => {
   res.render('index');
+});
+
+// Serve about page
+app.get('/about', (req, res) => {
+  res.render('about');
+});
+
+// Serve ban page -- implement properly
+app.get('/ban', (req, res) => {
+  res.render('ban', {
+    title: '😨',
+    status: 'You have been banned'
+  });
 });
 
 // Serve static files from public directory
@@ -122,7 +135,6 @@ function checkNameExists(generatedName) {
 }
 
 // Rate limit per sessionID
-
 // Limit sessions per IP to 1
 
 /*
